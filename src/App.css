@@ -6,6 +6,8 @@
   padding: 20px;
   font-weight: 600;
   font-size: 20px;
+<<<<<<< HEAD
+=======
 }
 
 .list {
@@ -13,4 +15,5 @@
   text-align: left;
   padding-left: 20px;
   padding-right: 20px;
+>>>>>>> e2ea98b7cd363715ac5202cfcf5bb0292c7ded3b
 }
