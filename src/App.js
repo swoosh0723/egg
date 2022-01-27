@@ -74,8 +74,22 @@ function App() {
         <p>2월 17일 발행</p>
         <hr />
       </div>
+
+      <Modal></Modal>
     </div>
   );
+}
+
+function Modal() {
+  return (
+    <>
+      <div className="modal">
+        <h2>제목</h2>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+    </>
+  )
 }
 
 export default App;
@@ -107,4 +121,32 @@ state는 변경되면 HTML이 자동으로 재렌더링 됩니다
 그냥 변수로 데이토 만들고 사용하면 새로고침을 해야함
 !!새로고침없이 스무스하게 만들고싶다!!! useState
 자주 바뀌는, 중요한 데이터는 변수 말고 state로 저장해서 사용
+*/
+
+
+/*
+// 220127 //
+아래처럼은 사용 못한다.
+return (
+  <div>
+  </div>
+  <div>
+  </div>
+)
+
+HTML 한단어로 줄여서 쓸 수 있는 방법: 리액트의 component 문법
+*Component 유의사항*
+1. 이름은 대괄호
+2. return() 안에 있는건 태그하나로 묶어야함
+  2-1. 아니면 의미없는 div를 쓰기 싫으시면 <> </> 이걸로 묶음
+
+어떤것을 Component로 만드는게 좋을까
+- 반복출현하는 UI
+- 자주 변경되는 HTML UIemf
+  - 성능적으로 이점이 있다
+
+Compoent 많이 만들면 단점
+- state 사용시 복잡해짐
+
+필요한것을 적절히 Component 시켜야한다
 */
