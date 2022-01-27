@@ -5,18 +5,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-<<<<<<< HEAD
-  let posts = "강남 고기 맛집";
-  let style = { color: "pink", fontSize: "30px" };
-
-  return (
-    <div className="App">
-      <div className="black-nav">
-        <div style={style}>개발 blog</div>
-      </div>
-      <h4>{posts}</h4>
-      <img src={logo} alt="logo"></img>
-=======
   //ES6 destructuring 문법
   let [title, titleChange] = useState([
     "남자 추천 성수동 맛집",
@@ -86,22 +74,12 @@ function App() {
         <p>2월 17일 발행</p>
         <hr />
       </div>
->>>>>>> e2ea98b7cd363715ac5202cfcf5bb0292c7ded3b
     </div>
   );
 }
 
 export default App;
 
-<<<<<<< HEAD
-// react 가장 큰 장점
-// 데이터 바인딩이 쉽다
-// 데이터 바인딩이란?
-// api로 넘어오는 데이터를 변수로 넣는다.
-// 변수 이미지 함수 스타일 등등 .... 쉽게 넣을 수 있다
-
-// style은 중괄호 object 형식으로
-=======
 /*
 // 220124 //
 react 가장 큰 장점
@@ -130,4 +108,3 @@ state는 변경되면 HTML이 자동으로 재렌더링 됩니다
 !!새로고침없이 스무스하게 만들고싶다!!! useState
 자주 바뀌는, 중요한 데이터는 변수 말고 state로 저장해서 사용
 */
->>>>>>> e2ea98b7cd363715ac5202cfcf5bb0292c7ded3b
