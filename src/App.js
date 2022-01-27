@@ -5,18 +5,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-<<<<<<< HEAD
-  let posts = "강남 고기 맛집";
-  let style = { color: "pink", fontSize: "30px" };
-
-  return (
-    <div className="App">
-      <div className="black-nav">
-        <div style={style}>개발 blog</div>
-      </div>
-      <h4>{posts}</h4>
-      <img src={logo} alt="logo"></img>
-=======
   //ES6 destructuring 문법
   let [title, titleChange] = useState([
     "남자 추천 성수동 맛집",
@@ -86,22 +74,26 @@ function App() {
         <p>2월 17일 발행</p>
         <hr />
       </div>
->>>>>>> e2ea98b7cd363715ac5202cfcf5bb0292c7ded3b
+
+      <Modal></Modal>
     </div>
   );
 }
 
+function Modal() {
+  return (
+    <>
+      <div className="modal">
+        <h2>제목</h2>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+    </>
+  )
+}
+
 export default App;
 
-<<<<<<< HEAD
-// react 가장 큰 장점
-// 데이터 바인딩이 쉽다
-// 데이터 바인딩이란?
-// api로 넘어오는 데이터를 변수로 넣는다.
-// 변수 이미지 함수 스타일 등등 .... 쉽게 넣을 수 있다
-
-// style은 중괄호 object 형식으로
-=======
 /*
 // 220124 //
 react 가장 큰 장점
@@ -130,4 +122,31 @@ state는 변경되면 HTML이 자동으로 재렌더링 됩니다
 !!새로고침없이 스무스하게 만들고싶다!!! useState
 자주 바뀌는, 중요한 데이터는 변수 말고 state로 저장해서 사용
 */
->>>>>>> e2ea98b7cd363715ac5202cfcf5bb0292c7ded3b
+
+
+/*
+// 220127 //
+아래처럼은 사용 못한다.
+return (
+  <div>
+  </div>
+  <div>
+  </div>
+)
+
+HTML 한단어로 줄여서 쓸 수 있는 방법: 리액트의 component 문법
+*Component 유의사항*
+1. 이름은 대괄호
+2. return() 안에 있는건 태그하나로 묶어야함
+  2-1. 아니면 의미없는 div를 쓰기 싫으시면 <> </> 이걸로 묶음
+
+어떤것을 Component로 만드는게 좋을까
+- 반복출현하는 UI
+- 자주 변경되는 HTML UIemf
+  - 성능적으로 이점이 있다
+
+Compoent 많이 만들면 단점
+- state 사용시 복잡해짐
+
+필요한것을 적절히 Component 시켜야한다
+*/
