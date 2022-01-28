@@ -12,6 +12,16 @@ function App() {
     "남자 추천 상왕십리 맛집",
   ]);
 
+  let [modal, modalChange] = useState(false);
+
+  function openModal() {
+    if (modal == false) {
+      modalChange(true)
+    } else {
+      modalChange(false);
+    }
+  }
+
   function titleChangeGender() {
 
     // state는 복사본을 만들어서 수정하세요
@@ -69,13 +79,43 @@ function App() {
         <hr />
       </div>
 
-      <div className="list">
+      <div
+        onClick={() => { modalChange(true) }}
+        className="list"
+      >
         <h3>{title[2]}</h3>
         <p>2월 17일 발행</p>
         <hr />
       </div>
 
-      <Modal></Modal>
+      <button
+        onClick={openModal}
+      >
+        모달버튼
+      </button>
+
+      <button
+        onClick={() => { modalChange(!modal) }}
+      >
+        모달버튼2
+      </button>
+
+      {/* 
+        javascript 사용하려면 사용하면 된다
+        if문은 인식 못한다
+
+        1 < 3 ? console.log('true') : console.log('false')
+
+        1 < 3 if문의 조건식
+        ? console.log('true') 실행할 코드
+        : console.log('false') else 실행할 코드
+
+        리액트의 관습 null
+      */}
+      {
+        modal === true ? <Modal></Modal> : null
+      }
+
     </div>
   );
 }
