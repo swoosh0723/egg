@@ -122,19 +122,31 @@ function App() {
 
         리액트의 관습 null
       */}
+
+
+      {/* 
+      App은 부모 컴포넌트
+      Modal은 자식 컴포넌트
+    
+      App이 가진 state를 사용 가능하게 전송가능 
+
+      이 문법의 이름은 props
+      */}
       {
-        modal === true ? <Modal></Modal> : null
+        modal === true
+          ? <Modal title={title}></Modal>
+          : null
       }
 
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
     <>
       <div className="modal">
-        <h2>제목</h2>
+        <h2>{props.title[0]}</h2>
         <p>날짜</p>
         <p>상세내용</p>
       </div>
