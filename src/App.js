@@ -14,6 +14,17 @@ function App() {
 
   let [modal, modalChange] = useState(false);
 
+  // react 반복문
+  function testUI() {
+    var array = [];
+
+    for (var i = 0; i < 3; i++) {
+      array.push(<div>안녕</div>)
+    }
+
+    return array
+  }
+
   function openModal() {
     if (modal == false) {
       modalChange(true)
@@ -46,6 +57,16 @@ function App() {
   let [likeCount, likeCountChange] = useState(0);
   // likeCountChange(100); likeCountChange는 함수
 
+
+  // map()은 유사 반복문 입니다.
+  const array = [2, 3, 4];
+
+  const newArray = array.map(function (a) {
+    return a * 2;
+  })
+
+  console.log(newArray);
+
   let posts = "강남 고기 맛집";
   // let style = { color: "pink", fontSize: "30px" };
 
@@ -58,41 +79,30 @@ function App() {
       >
         성별 필터 버튼
       </button>
-      <div className="list">
-        <h3>
-          {title[0]}
-          <button
-            type="button"
-            onClick={() => { likeCountChange(likeCount + 1) }}
-          >
-            ❤️
-          </button>
-          {likeCount}
-        </h3>
-        <p>2월 17일 발행</p>
-        <hr />
-      </div>
 
-      <div className="list">
-        <h3>{title[1]}</h3>
-        <p>2월 17일 발행</p>
-        <hr />
-      </div>
+      {testUI()}
 
-      <div
-        onClick={() => { modalChange(true) }}
-        className="list"
-      >
-        <h3>{title[2]}</h3>
-        <p>2월 17일 발행</p>
-        <hr />
-      </div>
+      {
+        title.map((titleText) => {
+          return (
+            <div className="list">
+              <h3>
+                {titleText}
 
-      <button
-        onClick={openModal}
-      >
-        모달버튼
-      </button>
+                <button
+                  type="button"
+                  onClick={() => { likeCountChange(likeCount + 1) }}
+                >
+                  ❤️
+                </button>
+                {likeCount}
+              </h3>
+              <p>2월 17일 발행</p>
+              <hr />
+            </div>
+          )
+        })
+      }
 
       <button
         onClick={() => { modalChange(!modal) }}
