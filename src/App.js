@@ -14,6 +14,8 @@ function App() {
 
   let [modal, modalChange] = useState(false);
 
+  let [titleNumber, titleNumberChange] = useState(0);
+
   // react 반복문
   function testUI() {
     var array = [];
@@ -70,6 +72,10 @@ function App() {
   let posts = "강남 고기 맛집";
   // let style = { color: "pink", fontSize: "30px" };
 
+  // UI 만드는법
+  // 1. UI와 관련된 중요 정보들을 state로 저장해놓고
+  // 2. state에 따라서 UI가 수정되게 만듬
+
   return (
     <div className="App">
       <div className="black-nav">Blog</div>
@@ -80,13 +86,14 @@ function App() {
         성별 필터 버튼
       </button>
 
-      {testUI()}
-
       {
-        title.map((titleText) => {
+        // map에서 i는 0,1,2 ... 
+        title.map((titleText, i) => {
           return (
             <div className="list">
-              <h3>
+              <h3
+                onClick={() => { titleNumberChange(i) }}
+              >
                 {titleText}
 
                 <button
@@ -103,6 +110,10 @@ function App() {
           )
         })
       }
+
+      <button onClick={() => { titleNumberChange(0) }}>버튼1</button>
+      <button onClick={() => { titleNumberChange(1) }}>버튼2</button>
+      <button onClick={() => { titleNumberChange(2) }}>버튼3</button>
 
       <button
         onClick={() => { modalChange(!modal) }}
@@ -134,7 +145,7 @@ function App() {
       */}
       {
         modal === true
-          ? <Modal title={title}></Modal>
+          ? <Modal title={title} titleNumber={titleNumber}></Modal>
           : null
       }
 
@@ -146,7 +157,7 @@ function Modal(props) {
   return (
     <>
       <div className="modal">
-        <h2>{props.title[0]}</h2>
+        <h2>{props.title[props.titleNumber]}</h2>
         <p>날짜</p>
         <p>상세내용</p>
       </div>
