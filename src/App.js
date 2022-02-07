@@ -13,8 +13,8 @@ function App() {
   ]);
 
   let [modal, modalChange] = useState(false);
-
   let [titleNumber, titleNumberChange] = useState(0);
+  let [contents, contentsChage] = useState('');
 
   // react 반복문
   function testUI() {
@@ -90,7 +90,7 @@ function App() {
         // map에서 i는 0,1,2 ... 
         title.map((titleText, i) => {
           return (
-            <div className="list">
+            <div className="list" key={i}>
               <h3
                 onClick={() => { titleNumberChange(i) }}
               >
@@ -110,6 +110,14 @@ function App() {
           )
         })
       }
+
+      {/* {contents}
+      <br />
+      <input
+        onChange={(e) => { contentsChage(e.target.value) }}
+      /> */}
+
+      {/* onChange, onInput 두개 있음 */}
 
       <button onClick={() => { titleNumberChange(0) }}>버튼1</button>
       <button onClick={() => { titleNumberChange(1) }}>버튼2</button>
