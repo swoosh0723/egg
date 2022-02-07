@@ -14,7 +14,7 @@ function App() {
 
   let [modal, modalChange] = useState(false);
   let [titleNumber, titleNumberChange] = useState(0);
-  let [contents, contentsChage] = useState('');
+  let [contents, contentsChange] = useState('');
 
   // react 반복문
   function testUI() {
@@ -111,17 +111,59 @@ function App() {
         })
       }
 
+      <div className="publish">
+        <input
+          onChange={(e) => { contentsChange(e.target.value) }}
+        />
+        <button
+          type="button"
+          onClick={() => {
+            let arrayCopy = [...title];
+            arrayCopy.unshift(contents);
+            titleChange(arrayCopy)
+          }}
+        >
+          저장
+        </button>
+      </div>
+
+      <div className="publish">
+        <input
+          onChange={(e) => { contentsChange(e.target.value) }}
+        />
+        <button
+
+          onClick={() => {
+            let arrayChange = [...title];
+            arrayChange.unshift(contents);
+            titleChange(arrayChange);
+          }}
+        >
+          저장
+        </button>
+      </div>
+
+
+      {/* unshift 배열앞에 추가하는 문법 */}
+      {/* 
+      - input된 value 변수로 만들고
+      - 저장버튼을 누르면 그 변수를 어디에 추가해야함 
+      */}
+
       {/* {contents}
       <br />
       <input
-        onChange={(e) => { contentsChage(e.target.value) }}
+        onChange={(e) => { contentsChange(e.target.value) }}
       /> */}
 
       {/* onChange, onInput 두개 있음 */}
 
+
+      {/* 
       <button onClick={() => { titleNumberChange(0) }}>버튼1</button>
       <button onClick={() => { titleNumberChange(1) }}>버튼2</button>
-      <button onClick={() => { titleNumberChange(2) }}>버튼3</button>
+      <button onClick={() => { titleNumberChange(2) }}>버튼3</button> 
+      */}
 
       <button
         onClick={() => { modalChange(!modal) }}
