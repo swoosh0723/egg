@@ -171,6 +171,8 @@ function App() {
         모달버튼2
       </button>
 
+      <Profile></Profile>
+
       {/* 
         javascript 사용하려면 사용하면 된다
         if문은 인식 못한다
@@ -273,3 +275,40 @@ Compoent 많이 만들면 단점
 
 필요한것을 적절히 Component 시켜야한다
 */
+
+
+
+/*
+  예전의 react 문법
+  알아두는 이유
+  예전 react 수정할때가 있다.
+  
+  1. state저장할 땐 constructor() 안에 this.state 라는 변수에 전부 보관하셔야합니다.
+  2. 그리고 꺼내쓸 때는 this.state.state명 이렇게 쓰시면 됩니다.
+*/
+
+class Profile extends React.Component {
+  constructor() {
+    super();
+    this.state = { name: 'kim', age: 30 }
+  }
+
+  changeName = () => {
+    this.setState({ name: 'park' })
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>프로필</h3>
+        <p>저는 {this.state.name} 입니다.</p>
+        <button
+          onClick={this.changeName}
+        >
+          프로필 변경
+        </button>
+      </div>
+    )
+  }
+}
+
