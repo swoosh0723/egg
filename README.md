@@ -1,7 +1,7 @@
 # React Study
 ## How To
 'React 리액트 기초부터 쇼핑몰 프로젝트까지!' 수강\
-영상으로 학습 후 복습\
+영상으로 학습 후 복습
 
 ## github 관리
 강의명으로 issues 생성\
