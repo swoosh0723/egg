@@ -170,6 +170,7 @@ function App() {
       >
         모달버튼2
       </button>
+      {/* <Test></Test> */}
 
       <Profile></Profile>
 
@@ -212,6 +213,16 @@ function Modal(props) {
         <h2>{props.title[props.titleNumber]}</h2>
         <p>날짜</p>
         <p>상세내용</p>
+      </div>
+    </>
+  )
+}
+
+function Test(props) {
+  return (
+    <>
+      <div class="test">
+        <h2>{props.title[props.titleNumber]}</h2>
       </div>
     </>
   )
