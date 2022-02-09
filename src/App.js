@@ -15,6 +15,8 @@ function App() {
 
   const [modal, modalChange] = useState(false);
 
+  const [newItem, newItemChange] = useState();
+
   function genderChange() {
     // 반복문으로 새로운 배열 생성
     // 아래 titleChange로 변경한다
@@ -30,6 +32,12 @@ function App() {
 
   function modalToggle() {
     { modalChange(!modal) }
+  }
+
+  function save() {
+    const save = [...title];
+    save.unshift(newItem);
+    titleChange(save)
   }
 
   return (
@@ -57,6 +65,26 @@ function App() {
           })
         }
       </div>
+
+
+      {/* 
+        글을 발행하려면 ? 
+        - input에 들어가는 text를 받아와야하고
+        - 버튼을 클릭하면
+        - 그 것을 title에 추가해주어야한다.
+      */}
+      <input
+        onChange={(e) => { newItemChange(e.target.value) }}
+      />
+
+      <button
+        type="button"
+        onClick={save}
+      >
+        글 발행하자
+      </button>
+
+      <br></br>
 
       <button
         type="button"
