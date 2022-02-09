@@ -17,11 +17,19 @@ function App() {
     <div className="App">
       <div className="black-nav">학습내용 복습</div>
       <div className="list">
-        <ListItem
-          title={title}
-          likeCount={likeCount}
-          likeCountChange={likeCountChange}
-        ></ListItem>
+        {
+          title.map((titleText, i) => {
+            return (
+              <ListItem
+                key={i}
+                title={titleText}
+                likeCount={likeCount}
+                likeCountChange={likeCountChange}
+              >
+              </ListItem>
+            )
+          })
+        }
       </div>
     </div>
 
@@ -39,7 +47,7 @@ function ListItem(props) {
   return (
     <>
       <div className="listItem">
-        <h3>{props.title[0]}</h3>
+        <h3>{props.title}</h3>
         <button
           type="button"
           onClick={() => { props.likeCountChange(props.likeCount + 1) }}
