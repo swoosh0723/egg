@@ -19,9 +19,29 @@ function App() {
     likeCountChange(likeCount + 1);
   }
 
+  function changeGender() {
+
+    // map return 해줘야함
+    const woman = title.map((item) => {
+      return item.replace('남자', '여자')
+    });
+
+    woman.sort();
+
+    titleChange(woman);
+  }
+
+
   return (
     <div className="App">
       <div className="black-nav">학습내용 복습2</div>
+
+      <button
+        type="button"
+        onClick={changeGender}
+      >
+        성별버튼 변경!
+      </button>
 
       {
         title.map((item, i) => {
