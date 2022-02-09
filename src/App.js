@@ -5,17 +5,37 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  let [title, titleChange] = useState([
-    '성수동 맛집',
-    '강남 맛집',
-    '제주도 맛집'
+  const [title, titleChange] = useState([
+    '남자 성수동 맛집',
+    '남자 강남 맛집',
+    '남자 제주도 맛집'
   ]);
 
-  let [likeCount, likeCountChange] = useState(0)
+  function genderChange() {
+    // 반복문으로 새로운 배열 생성
+    // 아래 titleChange로 변경한다
+    const womon = title.map((item) => {
+      return item.replace('남자', '여자')
+    });
+
+    // 정렬
+    womon.sort();
+
+    titleChange(womon);
+  }
+
+  const [likeCount, likeCountChange] = useState(0)
 
   return (
     <div className="App">
       <div className="black-nav">학습내용 복습</div>
+
+      <button
+        type="button"
+        onClick={genderChange}
+      >
+        성별 버튼
+      </button>
       <div className="list">
         {
           title.map((titleText, i) => {
@@ -42,7 +62,7 @@ function App() {
 // components명은 반드시 대문자
 // pros를 받을때는 사용한 곳에 바인딩 되어야함
 // useState 변경할때는 Setter를 변경해주어야함
-// let [현재상태, setter] = useState(0);
+// const [현재상태, setter] = useState(0);
 function ListItem(props) {
   return (
     <>
