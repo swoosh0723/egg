@@ -15,6 +15,8 @@ function App() {
 
   const [likeCount, likeCountChange] = useState(0);
 
+  const [modalOpen, modalOpenChange] = useState(false);
+
   function like() {
     likeCountChange(likeCount + 1);
   }
@@ -29,6 +31,10 @@ function App() {
     woman.sort();
 
     titleChange(woman);
+  }
+
+  function modalToggle() {
+    modalOpenChange(!modalOpen);
   }
 
 
@@ -55,6 +61,18 @@ function App() {
           )
         })
       }
+
+      <button
+        type="button"
+        onClick={modalToggle}
+      >
+        열러라 모달
+      </button>
+
+      {
+        modalOpen === true ? <Modal></Modal> : null
+      }
+
     </div>
   );
 }
@@ -79,6 +97,16 @@ function ListItem(props) {
           </span>
         </h3>
         <p>발행일: 2022.02.10</p>
+      </div>
+    </>
+  )
+}
+
+function Modal() {
+  return (
+    <>
+      <div className="modal">
+        모달창입니다
       </div>
     </>
   )
