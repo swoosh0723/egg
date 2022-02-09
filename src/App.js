@@ -17,6 +17,8 @@ function App() {
 
   const [modalOpen, modalOpenChange] = useState(false);
 
+  const [contents, contentsChange] = useState();
+
   function like() {
     likeCountChange(likeCount + 1);
   }
@@ -67,6 +69,22 @@ function App() {
         onClick={modalToggle}
       >
         열러라 모달
+      </button><br />
+
+      <input
+        onChange={(e) => {
+          contentsChange(e.target.value)
+        }}
+      />
+      <button
+        type="button"
+        onClick={() => {
+          const titleAdd = [...title];
+          titleAdd.unshift(contents);
+          titleChange(titleAdd);
+        }}
+      >
+        블로그 글 발행하기
       </button>
 
       {
