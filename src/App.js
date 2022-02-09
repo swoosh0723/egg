@@ -11,6 +11,10 @@ function App() {
     '남자 제주도 맛집'
   ]);
 
+  const [likeCount, likeCountChange] = useState(0)
+
+  const [modal, modalChange] = useState(false);
+
   function genderChange() {
     // 반복문으로 새로운 배열 생성
     // 아래 titleChange로 변경한다
@@ -24,7 +28,9 @@ function App() {
     titleChange(womon);
   }
 
-  const [likeCount, likeCountChange] = useState(0)
+  function modalToggle() {
+    { modalChange(!modal) }
+  }
 
   return (
     <div className="App">
@@ -51,9 +57,25 @@ function App() {
           })
         }
       </div>
+
+      <button
+        type="button"
+        onClick={modalToggle}
+      >
+        모달 버튼
+      </button>
+
+      {/* 
+        조건문 !! 
+        1 < 3 ? true : false
+      */}
+
+      {
+        modal === true
+          ? <Modal></Modal>
+          : null
+      }
     </div>
-
-
   );
 
 }
@@ -78,6 +100,16 @@ function ListItem(props) {
           {props.likeCount}
         </span>
         <p>날짜: 2월 1일</p>
+      </div>
+    </>
+  )
+}
+
+function Modal() {
+  return (
+    <>
+      <div className="modal">
+        <h3>모달창입니다람쥐</h3>
       </div>
     </>
   )
