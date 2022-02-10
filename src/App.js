@@ -27,11 +27,15 @@ function App() {
 
     // map return 해줘야함
     const woman = title.map((item) => {
-      if (item.includes('남자')) {
-        return item.replace('남자', '여자')
-      } else {
-        return item.replace('여자', '남자')
-      }
+      // if (item.includes('남자')) {
+      //   return item.replace('남자', '여자')
+      // } else {
+      //   return item.replace('여자', '남자')
+      // }
+
+      return item.includes('남자')
+        ? item.replace('남자', '여자')
+        : item.replace('여자', '남자')
 
     });
 
