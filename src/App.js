@@ -8,8 +8,6 @@ function App() {
   const [title, titleChange] = useState([
     '남자 성수 맛집',
     '남자 제주도 맛집',
-    '남자 홍대 맛집',
-    '남자 강남 맛집',
     '남자 이태원 맛집'
   ])
 
@@ -19,6 +17,8 @@ function App() {
 
   const [contents, contentsChange] = useState();
 
+  const [modalTitle, modalTitleChange] = useState('');
+
   function like() {
     likeCountChange(likeCount + 1);
   }
@@ -27,7 +27,16 @@ function App() {
 
     // map return 해줘야함
     const woman = title.map((item) => {
-      return item.replace('남자', '여자')
+      // if (item.includes('남자')) {
+      //   return item.replace('남자', '여자')
+      // } else {
+      //   return item.replace('여자', '남자')
+      // }
+
+      return item.includes('남자')
+        ? item.replace('남자', '여자')
+        : item.replace('여자', '남자')
+
     });
 
     woman.sort();
@@ -59,6 +68,10 @@ function App() {
               title={item}
               likeCount={likeCount}
               like={like}
+              modalTitle={modalTitle}
+              modalTitleChange={modalTitleChange}
+              modalOpen={modalOpen}
+              modalOpenChange={modalOpenChange}
             ></ListItem>
           )
         })
@@ -88,7 +101,11 @@ function App() {
       </button>
 
       {
-        modalOpen === true ? <Modal></Modal> : null
+        modalOpen === true
+          ? <Modal
+            modalTitle={modalTitle}
+          ></Modal>
+          : null
       }
 
     </div>
@@ -100,7 +117,14 @@ export default App;
 function ListItem(props) {
   return (
     <>
-      <div className="listItem">
+      <div
+        className="listItem"
+        onClick={() => {
+          console.log(props.title);
+          props.modalTitleChange(props.title);
+          props.modalOpenChange(!props.modalOpen);
+        }}
+      >
         <h3>
           {props.title}
 
@@ -120,11 +144,13 @@ function ListItem(props) {
   )
 }
 
-function Modal() {
+function Modal(props) {
   return (
     <>
       <div className="modal">
-        모달창입니다
+        <div>
+          {props.modalTitle}<br />모달창입니다
+        </div>
       </div>
     </>
   )
