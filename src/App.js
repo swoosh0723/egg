@@ -122,7 +122,9 @@ function ListItem(props) {
         onClick={() => {
           console.log(props.title);
           props.modalTitleChange(props.title);
-          props.modalOpenChange(!props.modalOpen);
+          props.modalOpenChange == false
+            ? props.modalOpenChange(false)
+            : props.modalOpenChange(true)
         }}
       >
         <h3>
